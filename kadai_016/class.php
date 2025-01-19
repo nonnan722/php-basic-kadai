@@ -13,14 +13,8 @@
     class Food
     {
       // プロパティを定義
-      public $name;
-      public $price;
-
-      // メソッド
-      public function show_price($price)
-      {
-        echo $price;
-      }
+      private $name;
+      private $price;
 
       // コンストラクタ
       public function __construct(string $name, int $price)
@@ -28,20 +22,20 @@
         $this->name = $name;
         $this->price = $price;
       }
+
+      // メソッド
+      public function show_price()
+      {
+        echo $this->price . "<br>";
+      }
     }
     // クラスの生成
     class Animal
     {
       // プロパティを定義
-      public $name;
-      public $height;
-      public $weight;
-
-      // メソッド
-      public function show_height($height)
-      {
-        echo $height;
-      }
+      private $name;
+      private $height;
+      private $weight;
 
       // コンストラクタ
       public function __construct(string $name, int $height, int $weight)
@@ -50,18 +44,29 @@
         $this->height = $height;
         $this->weight = $weight;
       }
+
+      // メソッド
+      public function show_height()
+      {
+        echo $this->height . "<br>";
+      }
     }
 
-    // インストラクタ化
+    // インスタンス$foodを作成
     $food = new Food('potato', 250);
+    // インスタンス$foodの各プロパティの値を出力する
     print_r($food);
 
+    // インスタンス$animalを作成
     $animal = new Animal('dog', 60, 5000);
+    // インスタンス$animalの各プロパティの値を出力する
     print_r($animal);
 
-    // メソッドにアクセスして出力
-    echo "<br>" . $food->price . "<br>";
-    echo $animal->height;
+    echo "<br>";
+
+    // メソッドにアクセスして実行
+    $food->show_price();
+    $animal->show_height();
     ?>
 
   </p>
